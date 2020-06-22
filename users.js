@@ -1,5 +1,16 @@
 const users = [];
-
+const colors = [
+  '#ff9ff3',
+  '#feca57',
+  '#ff6b6b',
+  '#ff9f43',
+  '#2e86de',
+  '#5f27cd',
+  '#341f97',
+  '#576574',
+  '#222f3e',
+  '#10ac84',
+];
 const addUser = ({ id, name, room }) => {
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
@@ -10,8 +21,8 @@ const addUser = ({ id, name, room }) => {
 
   if (!name || !room) return { error: 'Username and room are required.' };
   if (existingUser) return { error: 'Username is taken.' };
-
-  const user = { id, name, room };
+  var color = colors[Math.floor(Math.random() * colors.length)];
+  const user = { id, name, room, color };
 
   users.push(user);
 
